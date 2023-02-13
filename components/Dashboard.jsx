@@ -108,6 +108,11 @@ export default function Dashboard({ setUser, setAuthState, user }) {
                 </span>
               </p>
             </div>
+            <p id="flat-earth">
+              {" "}
+              Flat Earther? No Problem! Click the globe icon below to change to
+              flat earth! ⬇️ <br />
+            </p>
           </div>
         ) : (
           <p>Loading...</p>

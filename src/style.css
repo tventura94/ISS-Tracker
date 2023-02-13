@@ -125,3 +125,9 @@
 .spanclass {
   color: white;
 }
+
+#flat-earth {
+  align-self: flex-end;
+  font-size: 15px;
+  margin-right: 1.4rem;
+}
