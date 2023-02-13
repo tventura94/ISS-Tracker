@@ -72,7 +72,7 @@ export default function Dashboard({ setUser, setAuthState, user }) {
       );
 
       const info = document.querySelector(".cesium-infoBox-title");
-      info.innerHTML = "International Space Station";
+      info.innerHTML = "ISS (International Space Station)";
     }
   }, [issData, issClicked]);
 
