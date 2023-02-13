@@ -1,7 +1,7 @@
 import Nav from "./Nav";
 import MenuPopupState from "./MenuPopup";
-import Fire from "./Fire";
-import { getUserData, getIssData } from "./Fire";
+import Fire from "../components/Fire";
+import { getUserData, getIssData } from "../components/Fire";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
@@ -37,7 +37,6 @@ export default function Dashboard({ setUser, setAuthState, user }) {
         console.log(err);
       });
   }, [issData]);
-
   let viewerRef = useRef(null);
 
   const issGrazeButtonHandler = () => {
@@ -55,7 +54,6 @@ export default function Dashboard({ setUser, setAuthState, user }) {
     maximumPixelSize: 50,
     altitude: 420000,
   });
-
   useEffect(() => {
     if (issData) {
       let altitude = 420000;
@@ -67,8 +65,8 @@ export default function Dashboard({ setUser, setAuthState, user }) {
 
       setPosition(
         Cartesian3.fromDegrees(
-          Number(issData.longitude),
-          Number(issData.latitude),
+          Number(issData.iss_position.longitude),
+          Number(issData.iss_position.latitude),
           altitude
         )
       );
@@ -94,8 +92,8 @@ export default function Dashboard({ setUser, setAuthState, user }) {
           <div className="issHeader">
             <div>
               <h1>Current Position of ISS</h1>
-              <p>Latitude: {issData.latitude}</p>
-              <p>Longitude: {issData.longitude}</p>
+              <p>Latitude: {issData.iss_position.latitude}</p>
+              <p>Longitude: {issData.iss_position.longitude}</p>
               <button onClick={issGrazeButtonHandler}>Graze The Earth</button>
             </div>
             <div>
