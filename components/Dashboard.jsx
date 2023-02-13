@@ -12,7 +12,7 @@ import { Cartesian3, ModelGraphics } from "cesium";
 
 export default function Dashboard({ setUser, setAuthState, user }) {
   useEffect(() => {
-    console.log(user);
+    console.log(issData);
     getUserData(user);
   }, []);
 
@@ -34,7 +34,6 @@ export default function Dashboard({ setUser, setAuthState, user }) {
       setIssData(data);
     });
   }, [issData]);
-
   let viewerRef = useRef(null);
 
   const issGrazeButtonHandler = () => {
