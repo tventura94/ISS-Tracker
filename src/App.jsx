@@ -14,7 +14,7 @@ function App() {
       auth,
       async (authenticatedUser) => {
         if (authenticatedUser) {
-          setUser(authenticatedUser.email);
+          setUser(authenticatedUser.email.location);
           setAuthState("dashboard");
         } else {
           setUser(null);

@@ -1,7 +1,7 @@
 import Nav from "./Nav";
 import MenuPopupState from "./MenuPopup";
-import Fire from "../components/Fire";
-import { getUserData, getIssData } from "../components/Fire";
+import Fire from "./Fire";
+import { getUserData, getIssData } from "./Fire";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
@@ -12,7 +12,6 @@ import { Cartesian3, ModelGraphics } from "cesium";
 
 export default function Dashboard({ setUser, setAuthState, user }) {
   useEffect(() => {
-    console.log(issData);
     getUserData(user);
   }, []);
 
@@ -30,10 +29,15 @@ export default function Dashboard({ setUser, setAuthState, user }) {
 
   //Storing updating API coordinates
   useEffect(() => {
-    getIssData().then((data) => {
-      setIssData(data);
-    });
+    getIssData()
+      .then((data) => {
+        setIssData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [issData]);
+
   let viewerRef = useRef(null);
 
   const issGrazeButtonHandler = () => {
@@ -45,7 +49,7 @@ export default function Dashboard({ setUser, setAuthState, user }) {
 
   const modelGraphics = new ModelGraphics({
     // ISS 3D model
-    uri: "/img/ISS_stationary.glb",
+    uri: "ISS_stationary.glb",
     scale: 0,
     minimumPixelSize: 50,
     maximumPixelSize: 50,
@@ -55,7 +59,6 @@ export default function Dashboard({ setUser, setAuthState, user }) {
   useEffect(() => {
     if (issData) {
       let altitude = 420000;
-
       if (issClicked) {
         altitude = 12000;
       } else {
@@ -64,8 +67,8 @@ export default function Dashboard({ setUser, setAuthState, user }) {
 
       setPosition(
         Cartesian3.fromDegrees(
-          Number(issData.iss_position.longitude),
-          Number(issData.iss_position.latitude),
+          Number(issData.longitude),
+          Number(issData.latitude),
           altitude
         )
       );
@@ -91,8 +94,8 @@ export default function Dashboard({ setUser, setAuthState, user }) {
           <div className="issHeader">
             <div>
               <h1>Current Position of ISS</h1>
-              <p>Latitude: {issData.iss_position.latitude}</p>
-              <p>Longitude: {issData.iss_position.longitude}</p>
+              <p>Latitude: {issData.latitude}</p>
+              <p>Longitude: {issData.longitude}</p>
               <button onClick={issGrazeButtonHandler}>Graze The Earth</button>
             </div>
             <div>

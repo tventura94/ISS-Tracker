@@ -16,7 +16,7 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth, getUserData } from "../components/Fire";
+import { auth, getUserData } from "./Fire";
 
 function Copyright(props) {
   return (

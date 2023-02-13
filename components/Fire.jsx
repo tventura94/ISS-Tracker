@@ -24,6 +24,7 @@ export const auth = getAuth();
 export const db = getFirestore();
 
 // Get User Data
+
 export function getUserData(user) {
   if (!user) {
     return;

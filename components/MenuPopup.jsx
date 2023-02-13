@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { signOut } from "firebase/auth";
-import { auth } from "../components/Fire";
+import { auth } from "./Fire";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import { Typography } from "@mui/material";
 import { Drawer } from "@mui/material";
