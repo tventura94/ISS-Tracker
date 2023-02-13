@@ -70,6 +70,9 @@ export default function Dashboard({ setUser, setAuthState, user }) {
           altitude
         )
       );
+
+      const info = document.querySelector(".cesium-infoBox-title");
+      info.innerHTML = "International Space Station";
     }
   }, [issData, issClicked]);
 
