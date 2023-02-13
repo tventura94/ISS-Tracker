@@ -1,0 +1,130 @@
+
+
+Fix loading screen
+
+
+
+2//7 notes
+
+- Loading screen needs to be styled
+
+- figure out what the fuck this app is going to do 
+
+-figure out layout
+
+-add "my profile" section
+
+
+
+
+2/10 notes
+
+
+
+see if its possible to make a selection screen for those images and store the currently used one as user data
+
+style header
+
+
+
+
+2/12 notes
+
+get new SVG logo
+
+style button, style everything better
+
+fix the label within the app wehn you click
+
+see if you can make iss rotate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* {issData && (
+          <MapContainer
+            center={[
+              issData.iss_position.latitude,
+              issData.iss_position.longitude,
+            ]}
+            zoom={13}
+            scrollWheelZoom={false}
+            style={{ width: "500px", height: "500px" }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker
+              position={[
+                issData.iss_position.latitude,
+                issData.iss_position.longitude,
+              ]}
+            >
+              <Popup>ISS position</Popup>
+            </Marker>
+          </MapContainer>
+        )} */
+
+
+
+
+
+
+
+
+            from Dashboard - line 59 start 
+
+
+        const [pointGraphics, setPointGraphics] = useState({ pixelSize: 10 });
+
+  useEffect(() => {
+    if (issData) {
+      let altitude = 420000;
+      let newPixelSize = 10;
+      if (issClicked) {
+        altitude = 10000;
+        newPixelSize = 4;
+      } else {
+        altitude = 420000;
+      }
+      if (flashClicked) {
+        altitude = 10;
+        newPixelSize = 0.1;
+      } else {
+      }
+      setPosition(
+        Cartesian3.fromDegrees(
+          Number(issData.iss_position.longitude),
+          Number(issData.iss_position.latitude),
+          altitude
+        )
+      );
+      setPointGraphics({ pixelSize: newPixelSize });
+    }
+  }, [issData, issClicked, flashClicked]);
