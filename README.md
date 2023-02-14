@@ -7,5 +7,6 @@ I used standard Material UI components for the sign in and register forms and Re
 In this video I start by showing the functionality of the login and register, and then go into the functionality of the app itself
 
 
-https://user-images.githubusercontent.com/71479822/218351550-8061620d-822d-4dc5-9490-5fc946df11f2.mp4
+
+https://user-images.githubusercontent.com/71479822/218797157-e10a8728-ff28-4f7c-b38f-14788c1a1809.mp4
 
