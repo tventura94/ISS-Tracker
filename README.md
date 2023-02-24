@@ -1,6 +1,6 @@
 # ISS-Tracker
 Track the ISS in real time! Built using ReactJS, MUI, Firebase, and CesiumJS
-<h1> How to run on your own server! </h1>
+<h3> How to run on your own server! </h3>
 <ul><li> Fork or clone the depository from GitHub!</li>
     <li> run "npm i" in your VScode (NPM required)</li>
     <li> run the command "npm run dev" in your VScode terminal to start the local server</li>
