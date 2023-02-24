@@ -1,6 +1,11 @@
 # ISS-Tracker
 Track the ISS in real time! Built using ReactJS, MUI, Firebase, and CesiumJS
-
+<h1> How to run on your own server! </h1>
+<ul><li> Fork or clone the depository from GitHub!</li>
+    <li> run "npm i" in your VScode (NPM required)</li>
+    <li> run the command "npm run dev" in your VScode terminal to start the local server</li>
+    <li> Start tracking the ISS! </li> 
+    </ul>
 This is an app I designed and programmed from start to finish, it implements a noSQL database using firebase and CesiumJS to render the 3d components. 
 I used standard Material UI components for the sign in and register forms and ReactJS as a framework.
 
