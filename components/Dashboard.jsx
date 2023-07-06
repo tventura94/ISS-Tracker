@@ -37,6 +37,7 @@ export default function Dashboard({ setUser, setAuthState, user }) {
         console.log(err);
       });
   }, [issData]);
+
   let viewerRef = useRef(null);
 
   const issGrazeButtonHandler = () => {
@@ -54,6 +55,7 @@ export default function Dashboard({ setUser, setAuthState, user }) {
     maximumPixelSize: 50,
     altitude: 420000,
   });
+
   useEffect(() => {
     if (issData) {
       let altitude = 420000;

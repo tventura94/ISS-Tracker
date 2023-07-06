@@ -5,6 +5,7 @@ import Register from "../components/Register";
 import Dashboard from "../components/Dashboard";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../components/Fire";
+
 function App() {
   const [user, setUser] = React.useState(null);
   const [authState, setAuthState] = React.useState(null);
@@ -33,6 +34,7 @@ function App() {
         <Register setAuthState={setAuthState} setUser={setUser} />
       </div>
     );
+
   if (authState === "signin")
     return (
       <div>
@@ -40,12 +42,14 @@ function App() {
         <SignIn setAuthState={setAuthState} setUser={setUser} />
       </div>
     );
+
   if (user)
     return (
       <div>
         <Dashboard setAuthState={setAuthState} setUser={setUser} user={user} />
       </div>
     );
+
   return (
     <div>
       <Register />
